@@ -25,18 +25,19 @@
 		html { width: 100%;	height: 100%; }
 		body{ height: 100%; margin:0; padding:0; background-color: rgb(226, 177, 56);}
 
-		#welcome{
+		#splash-container{
 			position: absolute;
 			top: 0; left: 0;
 			margin: 0; padding: 0;
 			width: 100%; height: 100%;
 		}
 
-		#welcome-1{ top: 0; left: 0; }
-		#welcome-2{ top: 0; right: 0; }
-		#welcome-3{ bottom: 0; left: 0; }
-		#welcome-4{ bottom: 0; right: 0; }
-		#welcome-1, #welcome-2, #welcome-3, #welcome-4{
+		#splash-img-1{ top: 0; left: 0; }
+		#splash-img-2{ top: 0; right: 0; }
+		#splash-img-3{ bottom: 0; left: 0; }
+		#splash-img-4{ bottom: 0; right: 0; }
+
+		#splash-img-1, #splash-img-2, #splash-img-3, #splash-img-4{
 			position: absolute;
 			width: 50%; height: 50%;
 			background-image: url('./img/splash/splash_3_background.jpg');
@@ -46,7 +47,7 @@
 			transition: 0.7s;
 		} 
 
-		#welcome-content{
+		#splash-text{
 			position: absolute;
 			top:30%; left:0;
 			width: 100%;
@@ -75,23 +76,23 @@
 
 		/* Extra small devices (phones, 600px and down) */
 		@media only screen and (max-width: 600px) { 
-			#welcome-content{ font-size: 18px; }
+			#splash-text{ font-size: 18px; }
 		} 
 		/* Small devices (portrait tablets and large phones, 600px and up) */
 		@media only screen and (min-width: 600px) {  
-			#welcome-content{ font-size: 20px; }
+			#splash-text{ font-size: 20px; }
 		} 
 		/* Medium devices (landscape tablets, 768px and up) */
 		@media only screen and (min-width: 768px) {  
-			#welcome-content{ font-size: 26px; }
+			#splash-text{ font-size: 26px; }
 		} 
 		/* Large devices (laptops/desktops, 992px and up) */
 		@media only screen and (min-width: 992px) {  
-			#welcome-content{ font-size: 28px; }
+			#splash-text{ font-size: 28px; }
 		} 
 		/* Extra large devices (large laptops and desktops, 1200px and up) */
 		@media only screen and (min-width: 1200px) { 
-			#welcome-content{ font-size: 30px; }
+			#splash-text{ font-size: 30px; }
 		}
 		
 	</style>
@@ -108,12 +109,12 @@
 			data-ribbon="Essam A. El-Sherif">
 		</a>
 	</div>
-	<div id="welcome">
-		<div id="welcome-1"></div>
-		<div id="welcome-2"></div>
-		<div id="welcome-3"></div>
-		<div id="welcome-4"></div>
-		<div id="welcome-content">
+	<div id="splash-container">
+		<div id="splash-img-1"></div>
+		<div id="splash-img-2"></div>
+		<div id="splash-img-3"></div>
+		<div id="splash-img-4"></div>
+		<div id="splash-text">
 			EGYPT<br>
 			welcome to exploring the map<br>
 			click to proceed

@@ -1,27 +1,45 @@
-/**/
-let basemap_layers = {}, basemap_default;
+/**
+ * @module  demo_splash_2
+ * @desc    module to implement a splash screen prior to loading the Leaflet full map screen.
+ * @version v1.0.0
+ * @author  Essam A. El-Sherif
+ */
 
-/**/
-let map_1, map_center, map_elt;
+/** @const map_center {object} - fixed map center throughout all screens */
+const map_center = L.latLng(28.652031, 30.750732);
+
+/** @const map_zoom {number} - fixed zoom level throughout all screens */
+const map_zoom = 5;
+
+/** @var map_elt {object} - variable to hold the HTMLElement object */
+let map_elt;
+
+/** @var map_1 {object} - variable to hold the Leaflet Map object */
+let map_1;
+
+/** @var basemap_layers {object} - variable to hold the TileLayer objects */
+let basemap_layers = {};
+
+/** @var basemap_layers {object} - variable to hold the default TileLayer object */
+let basemap_default;
 
 /**
  * @func
- * @desc
+ * @desc function to run upon loading the web page.
  */
 window.onload = () => {
+	'use strict';
 
 	basemap_default = init_basemap(basemap_layers, 'Open Street');
 
 	map_elt= document.getElementById('mapid');
 
-	map_center = L.latLng(28.652031, 30.750732); map_zoom = 5;
-
-	var wc = document.getElementById('welcome-content');
+	let wc = document.getElementById('splash-text');
 	wc.addEventListener('click', wLinkClick, {once: true});
 
 	function wLinkClick(){
-		var w1 = document.getElementById('welcome-1');
-		var w2 = document.getElementById('welcome-2');
+		let w1 = document.getElementById('splash-img-1');
+		let w2 = document.getElementById('splash-img-2');
 
 		w1.style.width = '0';
 		w2.style.width = '0';
@@ -29,11 +47,11 @@ window.onload = () => {
 		this.remove();
 	}
 
-	var w2 = document.getElementById('welcome-2');
+	let w2 = document.getElementById('splash-img-2');
 	w2.addEventListener('transitionend', wTransitEnd, {once: true});
 
 	function wTransitEnd(){
-		var w  = document.getElementById('welcome');
+		let w  = document.getElementById('splash-container');
 		w.remove();
 
 		init_map();
@@ -42,25 +60,29 @@ window.onload = () => {
 
 /**
  * @func
- * @desc
+ * @desc display the map screen.
  */
 function init_map(){
+	'use strict';
+
 	map_elt.style.display = 'block';
 	map_1 = L.map(map_elt, {center: map_center, zoom: map_zoom, zoomControl: false, attributionControl: false});
 	basemap_default.addTo(map_1);
 
-	map_1_screen();
+	map_controls();
 }
 
 /**
  * @func
- * @desc
+ * @desc function to add controls to the map screen.
  */
-function map_1_screen(){
+function map_controls(){
+	'use strict';
+
 	let ribbon = document.getElementsByClassName('esm-ribbon');
 	ribbon[0].parentNode.removeChild(ribbon[0]);
 
-	map_1.options.doubleClickZoom = scrollWheelZoom = true;
+	map_1.options.doubleClickZoom = map_1.options.scrollWheelZoom = true;
 
 	/* add zoom control */
 	let control_zoom = L.control.zoom({position:'topleft'});

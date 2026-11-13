@@ -1,4 +1,9 @@
+/**
+ * @func
+ * @desc function to load TileLayer objects.
+ */
 function init_basemap(basemap_layers, title){
+	'use strict';
 
 	const basemap_credits = {};
 
